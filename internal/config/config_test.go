@@ -97,6 +97,10 @@ grid:
     label: alertname
     customValues:
       labels: {}
+groups:
+  title:
+    color:
+      custom: {}
 karma:
   name: another karma
 labels:

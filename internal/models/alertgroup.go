@@ -45,6 +45,7 @@ type AlertGroup struct {
 	AlertmanagerCount map[string]int    `json:"alertmanagerCount"`
 	StateCount        map[string]int    `json:"stateCount"`
 	LatestStartsAt    time.Time         `json:"-"`
+	TitleColor        Color             `json:"titleColor"`
 }
 
 // LabelsFingerprint is a checksum of this AlertGroup labels and the receiver

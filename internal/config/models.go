@@ -34,6 +34,8 @@ type CustomLabelColor struct {
 
 type CustomLabelColors map[string][]CustomLabelColor
 
+type CustomTitleColors map[string][]CustomLabelColor
+
 type configSchema struct {
 	Alertmanager struct {
 		Interval time.Duration
@@ -70,6 +72,13 @@ type configSchema struct {
 			CustomValues struct {
 				Labels map[string]map[string]string
 			} `yaml:"customValues" mapstructure:"customValues"`
+		}
+	}
+	Groups struct {
+		Title struct {
+			Color struct {
+				Custom CustomTitleColors
+			}
 		}
 	}
 	Karma struct {

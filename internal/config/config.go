@@ -241,6 +241,24 @@ func (config *configSchema) Read() {
 		}
 	}
 
+	err = v.UnmarshalKey("groups.title.color.custom", &config.Groups.Title.Color.Custom)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for labelName, customColors := range config.Groups.Title.Color.Custom {
+		for i, customColor := range customColors {
+			if customColor.Value == "" && customColor.ValueRegex == "" {
+				log.Fatalf("Custom label color for '%s' is missing 'value' or 'value_re'", labelName)
+			}
+			if customColor.ValueRegex != "" {
+				config.Groups.Title.Color.Custom[labelName][i].CompiledRegex, err = regexp.Compile(customColor.ValueRegex)
+				if err != nil {
+					log.Fatalf("Failed to parse custom color regex rule '%s' for '%s' label: %s", customColor.ValueRegex, labelName, err)
+				}
+			}
+		}
+	}
+
 	err = v.UnmarshalKey("grid.sorting.customValues.labels", &config.Grid.Sorting.CustomValues.Labels)
 	if err != nil {
 		log.Fatal(err)

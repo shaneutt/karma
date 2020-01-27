@@ -37,6 +37,17 @@ grid:
           critical: 1
           warning: 2
           info: 3
+groups:
+  title:
+    color:
+      custom:
+        severity:
+          - value: info
+            color: "#87c4e0"
+          - value: warning
+            color: "#ffae42"
+          - value: critical
+            color: "#ff220c"
 karma:
   name: karma-demo
 labels:

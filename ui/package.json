@@ -23,7 +23,7 @@
     "fast-deep-equal": "3.1.1",
     "favico.js": "0.3.10",
     "fontfaceobserver": "2.1.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "mobx": "5.15.4",
     "mobx-react": "6.1.8",
     "mobx-stored": "1.1.0",
